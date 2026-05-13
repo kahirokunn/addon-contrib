@@ -22,6 +22,7 @@ This repository contains the following OCM addons:
 - **federated-learning-controller**: Implements federated learning capabilities across distributed clusters
 - **fluid-addon**: Integrates Fluid for data orchestration and management in multicluster environments
 - **hellospoke-addon**: A simple example addon demonstrating basic OCM addon development patterns
+- **karpenter-provider-aws-addon**: Runs Karpenter provider AWS for managed AWS target clusters in default or hosted mode
 - **kueue-addon**: Integrates Kueue for advanced multicluster batch job scheduling and queue management
 - **open-telemetry-addon**: Deploys OpenTelemetry collectors for comprehensive observability and metrics collection
 - **resource-usage-collect-addon**: Collects and aggregates resource usage metrics across managed clusters

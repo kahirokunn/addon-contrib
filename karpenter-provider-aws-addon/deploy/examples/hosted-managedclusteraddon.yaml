@@ -1,0 +1,33 @@
+apiVersion: addon.open-cluster-management.io/v1beta1
+kind: AddOnDeploymentConfig
+metadata:
+  name: karpenter-provider-aws
+  namespace: target-a
+spec:
+  agentInstallNamespace: karpenter-system
+  customizedVariables:
+    - name: AWS_REGION
+      value: us-west-2
+    - name: KARPENTER_CLUSTER_NAME
+      value: target-eks
+    - name: CLUSTER_ENDPOINT
+      value: https://api.example.com
+    - name: NODE_ROLE_ARN
+      value: arn:aws:iam::123456789012:role/KarpenterNodeRole
+---
+apiVersion: addon.open-cluster-management.io/v1beta1
+kind: ManagedClusterAddOn
+metadata:
+  name: karpenter-provider-aws
+  namespace: target-a
+  annotations:
+    addon.open-cluster-management.io/hosting-cluster-name: hosting-a
+spec:
+  configs:
+    - group: addon.open-cluster-management.io
+      resource: addontemplates
+      name: karpenter-provider-aws-hosted
+    - group: addon.open-cluster-management.io
+      resource: addondeploymentconfigs
+      name: karpenter-provider-aws
+      namespace: target-a

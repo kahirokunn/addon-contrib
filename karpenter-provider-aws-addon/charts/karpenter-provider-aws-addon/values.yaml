@@ -1,0 +1,15 @@
+image:
+  repository: quay.io/open-cluster-management/karpenter-provider-aws-addon
+  tag: ""
+  pullPolicy: IfNotPresent
+
+replicaCount: 1
+
+serviceAccount:
+  name: karpenter-provider-aws-addon-controller
+
+resources: {}
+
+nodeSelector: {}
+tolerations: []
+affinity: {}

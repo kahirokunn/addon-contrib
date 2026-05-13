@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: karpenter-provider-aws-addon-controller
+  namespace: open-cluster-management-addon
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: karpenter-provider-aws-addon-controller
+  template:
+    metadata:
+      labels:
+        app: karpenter-provider-aws-addon-controller
+    spec:
+      serviceAccountName: karpenter-provider-aws-addon-controller
+      containers:
+        - name: controller
+          image: karpenter-provider-aws-addon-image
+          args:
+            - hub
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: karpenter-provider-aws-addon-controller
+  namespace: open-cluster-management-addon
