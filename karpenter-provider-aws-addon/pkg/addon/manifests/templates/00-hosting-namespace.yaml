@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: {{ .AddonInstallNamespace }}
+  labels:
+    app.kubernetes.io/name: {{ .AddonName }}
+    app.kubernetes.io/managed-by: karpenter-provider-aws-addon
+{{- if eq .InstallMode "Hosted" }}
+    addon.open-cluster-management.io/hosted-manifest-location: hosting
+{{- end }}

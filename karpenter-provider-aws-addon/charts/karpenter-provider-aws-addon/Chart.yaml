@@ -1,0 +1,6 @@
+apiVersion: v2
+name: karpenter-provider-aws-addon
+description: OCM hosted add-on controller for running Karpenter AWS provider against managed clusters
+type: application
+version: 0.1.0
+appVersion: "0.1.0"

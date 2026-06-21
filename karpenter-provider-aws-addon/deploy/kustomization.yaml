@@ -1,0 +1,4 @@
+resources:
+  - resources/cluster-management-addon.yaml
+  - resources/cluster-role.yaml
+  - resources/deployment.yaml
